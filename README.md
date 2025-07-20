@@ -1,3 +1,5 @@
+![Banner](banner.png)
+
 # 🗣️ Texto a Voz - Conversor Inteligente Multilenguaje
 
 Este proyecto permite convertir texto en voz a partir de diferentes fuentes. Además, puede detectar automáticamente el idioma, traducir el texto a varios idiomas disponibles, generar un resumen (si el texto es largo, concretamente mayor a 99 palabras) y reproducirlo en voz alta usando Google Text-to-Speech (`gTTS`).
