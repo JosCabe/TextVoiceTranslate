@@ -64,6 +64,7 @@ Puedes descargar directamente el archivo `.exe` para Windows desde el siguiente 
 
 📥 [Descargar ejecutable desde Google Drive](https://drive.google.com/file/d/1kKdr9-faE68NiQ7Y0KGqxx0NDlYBnZyu/view?usp=sharing)
 
+- IMPORTANTE: CUANDO SE SELECCIONA LA OPCIÓN CONVERTIR A AUDIO, EL ARCHIVO MP3 SE GENERA EN LA MISMA CARPETA DONDE SE ENCUENTRA EL EJECUTABLE interfaz_gui.exe 
 
 > ⚠️ Recomendación: si Windows bloquea la ejecución, haz clic derecho en el archivo → Propiedades → Marca "Permitir" y luego ejecuta normalmente.
 
