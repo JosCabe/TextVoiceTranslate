@@ -91,17 +91,7 @@ class TextoAVoz:
                 print(f"⚡ Audio acelerado generado correctamente como: {ruta_completa_acelerado}")
                 self.ruta_audio = ruta_completa_acelerado
             else:
-                raise FileNotFoundError(f"No se encontró el archivo generado: {ruta_completa_acelerado}")
-
-            # Ventana emergente para preguntar si eliminar el archivo original
-            tk.Tk().withdraw()  # Oculta la ventana principal
-            respuesta = messagebox.askyesno("Eliminar archivo original", f"¿Deseas eliminar el archivo '{nombre_base} despues de ser reproducido'?")
-
-            if respuesta:
-                os.remove(ruta_completa_original)
-                print(f"🧹 Archivo original '{nombre_base}' eliminado.")
-            else:
-                print("✅ Archivo original conservado.")
+                raise FileNotFoundError(f"No se encontró el archivo generado: {ruta_completa_acelerado}")           
 
             # Reproducción automática
             print("🎯 Intentando reproducir el audio...")
@@ -116,6 +106,20 @@ class TextoAVoz:
                 subprocess.call(["xdg-open", self.ruta_audio])
             else:
                 print("❌ Reproducción automática no soportada en este sistema.")
+
+            # Preguntar si se desean eliminar los archivos
+            tk.Tk().withdraw()
+            respuesta = messagebox.askyesno("Eliminar archivo original", f"¿Deseas eliminar el archivo '{nombre_base}' despues de ser reproducido?")
+
+            if respuesta:
+                for archivo in [ruta_completa_original, ruta_completa_acelerado]:
+                    try:
+                        os.remove(archivo)
+                        print(f"🗑️ Archivo eliminado: {archivo}")
+                    except Exception as e:
+                        print(f"⚠️ No se pudo eliminar '{archivo}': {e}")
+            else:
+                print("✅ Archivos conservados por elección del usuario.")
 
         except Exception as e:
             print(f"❌ Error al generar o reproducir el audio: {e}")
