@@ -62,7 +62,7 @@ Este proyecto permite convertir texto en voz a partir de diferentes fuentes. Ade
 ¿Quieres probar la app sin instalar nada más?  
 Puedes descargar directamente el archivo `.exe` para Windows desde el siguiente enlace:
 
-📥 [Haz clic aquí para descargar TextVoiceTranslateApp.exe](https://drive.google.com/file/d/1QW9gNL-C7hTydJtfEnCyCvVbJtxQ8R7I/view?usp=sharing)
+📥 [🔗 Descargar TextoAVoz.exe](https://drive.google.com/file/d/1Ls5qCm5NDfs-CO26LSo2qJJYmOonJGgQ/view?usp=sharing)
 
 > ⚠️ Recomendación: si Windows bloquea la ejecución, haz clic derecho en el archivo → Propiedades → Marca "Permitir" y luego ejecuta normalmente.
 
