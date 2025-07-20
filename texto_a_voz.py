@@ -1,5 +1,6 @@
 import os
 import platform
+import time
 import subprocess
 import trafilatura
 import jieba
@@ -48,6 +49,7 @@ class TextoAVoz:
         except Exception as e:
             print(f"Error al procesar la URL: {e}")
 
+
     #Método texto pasado a audio
     def reproducir(self):
         try:
@@ -58,17 +60,18 @@ class TextoAVoz:
             idioma_tag = idioma_detectado[:2].upper()
             print(f"🌍 Idioma detectado: {idioma_tag}")
 
-            # Generar audio original
-            self.audio = gTTS(text=self.texto, lang=idioma_detectado)
+            # Definir nombres y rutas seguras
+            carpeta_segura = os.getcwd()
             nombre_base = f"Audio_{idioma_tag}.mp3"
-            self.audio.save(nombre_base)
-            print(f"✅ Audio generado como '{nombre_base}'. Reproduciendo ahora...\n")
+            ruta_completa_original = os.path.join(carpeta_segura, nombre_base)
 
-            # Definir rutas
-            ruta_completa_original = os.path.abspath(nombre_base)
             nombre_acelerado = f"Idioma detectado - {idioma_tag}.mp3"
-            ruta_completa_acelerado = os.path.abspath(nombre_acelerado)
+            ruta_completa_acelerado = os.path.join(carpeta_segura, nombre_acelerado)
 
+            # Generar y guardar audio original
+            self.audio = gTTS(text=self.texto, lang=idioma_detectado)
+            self.audio.save(ruta_completa_original)
+            print(f"✅ Audio guardado como '{nombre_base}'")
 
             # Ejecutar FFmpeg con subprocess
             print(f"[DEBUG] Ejecutando FFmpeg para acelerar audio...")
@@ -86,30 +89,35 @@ class TextoAVoz:
                 ruta_completa_acelerado
             ], check=True)
 
-            # Verificar que se generó el archivo
+            # Verificar archivo generado
             if os.path.exists(ruta_completa_acelerado):
                 print(f"⚡ Audio acelerado generado correctamente como: {ruta_completa_acelerado}")
                 self.ruta_audio = ruta_completa_acelerado
             else:
-                raise FileNotFoundError(f"No se encontró el archivo generado: {ruta_completa_acelerado}")           
+                raise FileNotFoundError(f"No se encontró el archivo generado: {ruta_completa_acelerado}") 
 
-            # Reproducción automática
+            # Esperar para asegurar que el sistema lo pueda abrir
+            time.sleep(1.5)
+
+            # Reproducción automática (con ventana del reproductor)
             print("🎯 Intentando reproducir el audio...")
             sistema = platform.system()
             print(f"🖥️ Sistema operativo detectado: {sistema}")
-            if sistema == "Windows":
-                ruta_reproducible = os.path.normpath(self.ruta_audio)
-                os.startfile(ruta_reproducible)
-            elif sistema == "Darwin":  # macOS
-                subprocess.call(["afplay", self.ruta_audio])
-            elif sistema == "Linux":
-                subprocess.call(["xdg-open", self.ruta_audio])
-            else:
-                print("❌ Reproducción automática no soportada en este sistema.")
+            try:
+                if sistema == "Windows":
+                    os.startfile(self.ruta_audio)
+                elif sistema == "Darwin":  # macOS
+                    subprocess.call(["afplay", self.ruta_audio])
+                elif sistema == "Linux":
+                    subprocess.call(["xdg-open", self.ruta_audio])
+                else:
+                    print("❌ Reproducción automática no soportada en este sistema.")
+            except Exception as e:
+                print(f"❌ Error al abrir el reproductor: {e}")
 
             # Preguntar si se desean eliminar los archivos
             tk.Tk().withdraw()
-            respuesta = messagebox.askyesno("Eliminar archivo original", f"¿Deseas eliminar el archivo '{nombre_base}' despues de ser reproducido?")
+            respuesta = messagebox.askyesno("Eliminar archivo original", f"¿Deseas eliminar el archivo '{nombre_base}' después de ser reproducido?")
 
             if respuesta:
                 for archivo in [ruta_completa_original, ruta_completa_acelerado]:
@@ -203,8 +211,8 @@ Este script permite convertir texto a voz desde distintas fuentes:
 - Artículos extraídos desde una URL
 
 Funcionalidades adicionales:
-- Resume automáticamente textos largos (más de 100 palabras)
-- Traduce el texto a diferentes idiomas (es, en, fr, it, de)
+- Resume automáticamente textos largos (más 99 palabras)
+- Traduce el texto a diferentes idiomas (es, en, fr, it, de, tr, zh)
 - Reproduce el texto con voz usando gTTS
 
 El flujo se adapta según las decisiones del usuario:
