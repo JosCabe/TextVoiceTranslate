@@ -64,6 +64,26 @@ Puedes descargar directamente el archivo `.exe` para Windows desde el siguiente 
 
 📥 [Descargar ejecutable desde Google Drive](https://drive.google.com/file/d/1kKdr9-faE68NiQ7Y0KGqxx0NDlYBnZyu/view?usp=sharing)
 
+
+### 🔐 Aviso de seguridad al ejecutar la aplicación
+
+Es posible que al ejecutar `interfaz_gui.exe`, **Windows muestre un mensaje de advertencia** como:  
+_"Windows protegió su PC"_ o _"Esta aplicación no es de confianza"_.
+
+Esto ocurre porque el ejecutable ha sido creado por un desarrollador independiente y **no está firmado digitalmente por Microsoft**.  
+Es totalmente normal en proyectos personales o en desarrollo.
+
+#### ✅ ¿Qué hacer si aparece este mensaje?
+
+1. Haz clic en **"Más información"** (en azul).
+2. Luego haz clic en **"Ejecutar de todas formas"**.
+
+> ⚠ La aplicación **no contiene ningún virus ni realiza ninguna conexión externa**, y todos los procesos ocurren en local.  
+> Solo genera y reproduce un archivo de audio en tu ordenador, sin subir nada a internet.
+
+Puedes usarla con total confianza mientras sigo mejorando su funcionalidad.
+
+
 ### 🎧 Notas importantes sobre la reproducción de audio:
 
 - **Ubicación del archivo generado**:  
