@@ -87,7 +87,7 @@ Puedes usarla con total confianza mientras sigo mejorando su funcionalidad.
 ### 🎧 Nota importante sobre la reproducción de audio:
 
 - **Ubicación del archivo generado**:  
-Al seleccionar la opción "Convertir a audio", el archivo `.mp3` se genera automáticamente en la **misma carpeta donde se encuentra el ejecutable. Para reproducirlo después de haber seleccionado que: no quiere eliminar el archivo.mp3, después de la reproducción se podría reproducir de nuevo en la ruta comentada anteriormente (misma carpeta donde se encunetra el ejecutable)
+Al seleccionar la opción "Convertir a audio", el archivo `.mp3` se genera automáticamente en la **misma carpeta donde se encuentra el ejecutable. Para reproducirlo después de haber seleccionado que: no quiere eliminar el archivo.mp3, tiene que ir a la ruta comentada anteriormente (misma carpeta donde se encunetra el ejecutable)
 `interfaz_gui.exe`**.
 
 ---
