@@ -89,17 +89,6 @@ Puedes usarla con total confianza mientras sigo mejorando su funcionalidad.
 - **Ubicación del archivo generado**:  
   Al seleccionar la opción "Convertir a audio", el archivo `.mp3` se genera automáticamente en la **misma carpeta donde se encuentra el ejecutable `interfaz_gui.exe`**.
 
-- **Proceso de eliminación del archivo de audio**:  
-  La aplicación debería mostrar una **ventana desplegable** preguntando si el usuario desea eliminar el archivo de audio una vez finalizada la reproducción.  
-  Si elige **"Sí"**, el archivo se elimina automáticamente.  
-  Si elige **"No"**, se conserva en la carpeta.
-
-> ⚠️ **Actualmente, esta funcionalidad está en proceso de solución**, ya que la aplicación **no está aplicando correctamente la acción seleccionada** por el usuario tras la reproducción. Estoy trabajando en dejar este proceso completamente automático y funcional en base a la elección del usuario.
-
-
-> ⚠️ Recomendación: si Windows bloquea la ejecución, haz clic derecho en el archivo → Propiedades → Marca "Permitir" y luego ejecuta normalmente.
-
-
 
 ## 👨‍💻 Autor
 
