@@ -53,6 +53,10 @@ class TextoAVoz:
     #Método texto pasado a audio
     def reproducir(self):
         try:
+            # Inicializar ventana raíz de Tkinter para los messagebox
+            root = tk.Tk()
+            root.withdraw()
+            
             print("\n🎙️ INICIANDO CONVERSIÓN DE TEXTO A VOZ...")
 
             # Detección de idioma
@@ -60,9 +64,11 @@ class TextoAVoz:
             idioma_tag = idioma_detectado[:2].upper()
             print(f"🌍 Idioma detectado: {idioma_tag}")
 
+            # Definir nombre del archivo base
+            nombre_base = f"Audio_{idioma_tag}.mp3"
+
             # Definir nombres y rutas seguras
             carpeta_segura = os.getcwd()
-            nombre_base = f"Audio_{idioma_tag}.mp3"
             ruta_completa_original = os.path.join(carpeta_segura, nombre_base)
 
             nombre_acelerado = f"Idioma detectado - {idioma_tag}.mp3"
@@ -105,7 +111,7 @@ class TextoAVoz:
             print(f"🖥️ Sistema operativo detectado: {sistema}")
             try:
                 if sistema == "Windows":
-                    os.startfile(self.ruta_audio)
+                    subprocess.Popen(['explorer', self.ruta_audio])
                 elif sistema == "Darwin":  # macOS
                     subprocess.call(["afplay", self.ruta_audio])
                 elif sistema == "Linux":
@@ -116,7 +122,6 @@ class TextoAVoz:
                 print(f"❌ Error al abrir el reproductor: {e}")
 
             # Preguntar si se desean eliminar los archivos
-            tk.Tk().withdraw()
             respuesta = messagebox.askyesno("Eliminar archivo original", f"¿Deseas eliminar el archivo '{nombre_base}' después de ser reproducido?")
 
             if respuesta:
