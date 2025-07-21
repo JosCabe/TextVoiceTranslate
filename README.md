@@ -115,7 +115,6 @@ La idea es que cualquier usuario, sin conocimientos técnicos, pueda introducir 
 
 ## 🔮 Posibles mejoras futuras
 
-- Añadir una interfaz gráfica con Tkinter o PyQt.
 - Permitir guardar múltiples audios generados.
 - Integrar APIs externas para voces más naturales.
 - Exportar resúmenes a PDF o TXT automáticamente.
