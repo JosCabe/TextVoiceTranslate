@@ -4,6 +4,7 @@ import time
 import subprocess
 import trafilatura
 import jieba
+import sys
 import tkinter as tk
 from tkinter import messagebox
 from gtts import gTTS
@@ -18,9 +19,23 @@ class TextoAVoz:
     texto fijo, entrada por teclado, archivos locales y artículos web.
     """
 
+    # __init__
     def __init__(self):
-        self.texto = "" #Atributo donde se guarda el texto a leer
-        self.ruta_ffmpeg = "D:\\ffmpeg-7.1.1-essentials_build\\bin\\ffmpeg.exe"
+        self.texto = ""
+
+        # Detectar si ejecutamos desde un .exe (PyInstaller)
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS  # Carpeta temporal donde PyInstaller extrae archivos
+            ffmpeg_ruta_local = os.path.join(base_path, "ffmpeg", "bin", "ffmpeg.exe")
+        else:
+            ffmpeg_ruta_local = os.path.join("ffmpeg", "bin", "ffmpeg.exe")
+
+        # Ruta de respaldo (la original que usabas)
+        ruta_respaldo = "D:\\ffmpeg-7.1.1-essentials_build\\bin\\ffmpeg.exe"
+
+        # Verificar cuál usar
+        self.ruta_ffmpeg = ffmpeg_ruta_local if os.path.exists(ffmpeg_ruta_local) else ruta_respaldo
+
 
 
     #Método texto entrada por teclado
@@ -111,7 +126,11 @@ class TextoAVoz:
             print(f"🖥️ Sistema operativo detectado: {sistema}")
             try:
                 if sistema == "Windows":
-                    subprocess.Popen(['explorer', self.ruta_audio])
+                    try:
+                        os.startfile(self.ruta_audio)
+                    except Exception:
+                        subprocess.Popen(['wmplayer.exe', self.ruta_audio], shell=True)
+                        print("✅ Audio reproducido con subprocess + wmplayer.exe")    
                 elif sistema == "Darwin":  # macOS
                     subprocess.call(["afplay", self.ruta_audio])
                 elif sistema == "Linux":
@@ -178,7 +197,8 @@ class TextoAVoz:
             return idioma_detectado          
         except Exception as e:
             print(f"❌ Error al traducir el texto: {e}")
-       
+
+
     #Método para contar palabras para determinar si hacer o no el resumen.
     def contar_palabras(self):
         idioma = detect(self.texto)
@@ -189,6 +209,13 @@ class TextoAVoz:
             return len(self.texto.split())
         
 
+    # Método para cerrar completamente la aplicación
+    def cerrar_aplicacion(self):
+        import sys
+        sys.exit(0)
+    
+        
+    
 
 
 
@@ -229,4 +256,6 @@ Autor: José Cabello Romero
 Fecha: 19/07/2025
 ---------------------------------------------------------------
 """
+
+
 
