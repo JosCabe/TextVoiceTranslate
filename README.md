@@ -35,7 +35,7 @@ Este proyecto permite convertir texto en voz a partir de diferentes fuentes. Ade
 - `gTTS` – Google Text-to-Speech.
 - `langdetect` – Para detectar el idioma original.
 - `googletrans==4.0.0-rc1` – Para traducir el texto.
-- `summa` – Para generar resúmenes automáticos.
+- `summa==1.2.0` – Para generar resúmenes automáticos.
 - `trafilatura` – Para extraer texto de páginas web.
 - `jieba` – Para segmentar el texto en Chino.
 
