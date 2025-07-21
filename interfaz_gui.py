@@ -151,7 +151,7 @@ def mostrar_opciones_extras(caja_texto, tipo_entrada):
     tk.Button(
         frame_fila_final,
         text="Cerrar programa",
-        command=salir_app,
+        command=voz.cerrar_aplicacion,
         bg="#cc4444",
         fg="#000000",
         activebackground="#222222",
@@ -316,24 +316,24 @@ def mostrar_menu_principal():
     tk.Button(
         menu_frame,
         text="Salir",
+        command=voz.cerrar_aplicacion,
         width=30,
         bg="#cc4444",
         fg="white",
         relief="flat",
         font=("Segoe UI", 9, "bold"),
-        command=ventana.destroy
     ).pack(pady=(20, 5))
 
 
 # ============================
 # INICIO DE LA APLICACIÓN
 # ============================    
-
+if __name__ == "__main__":
 # Crea y lanza la ventana principal
-ventana = tk.Tk()
-ventana.title("Texto a Voz Inteligente: Convertidor + Traductor")
-ventana.geometry("650x650")
-ventana.minsize(650, 650)
-ventana.config(bg="#222222")
-mostrar_menu_principal()
-ventana.mainloop()
+    ventana = tk.Tk()
+    ventana.title("Texto a Voz Inteligente: Convertidor + Traductor")
+    ventana.geometry("650x650")
+    ventana.minsize(650, 650)
+    ventana.config(bg="#222222")
+    mostrar_menu_principal()
+    ventana.mainloop()
