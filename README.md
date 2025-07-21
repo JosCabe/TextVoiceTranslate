@@ -89,6 +89,7 @@ Puedes usarla con total confianza mientras sigo mejorando su funcionalidad.
 - **Ubicación del archivo generado**:  
   Al seleccionar la opción "Convertir a audio", el archivo `.mp3` se genera automáticamente en la **misma carpeta donde se encuentra el ejecutable `interfaz_gui.exe`**.
 
+---
 
 ## 👨‍💻 Autor
 
