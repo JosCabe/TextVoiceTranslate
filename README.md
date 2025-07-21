@@ -84,10 +84,11 @@ Es totalmente normal en proyectos personales o en desarrollo.
 Puedes usarla con total confianza mientras sigo mejorando su funcionalidad.
 
 
-### 🎧 Notas importantes sobre la reproducción de audio:
+### 🎧 Nota importante sobre la reproducción de audio:
 
 - **Ubicación del archivo generado**:  
-  Al seleccionar la opción "Convertir a audio", el archivo `.mp3` se genera automáticamente en la **misma carpeta donde se encuentra el ejecutable `interfaz_gui.exe`**.
+Al seleccionar la opción "Convertir a audio", el archivo `.mp3` se genera automáticamente en la **misma carpeta donde se encuentra el ejecutable, pero se ejecuta automáticamente. Para reproducirlo después de haber seleccionado que: no quiere eliminar el archivo .mp3 después de la reproducción se podría reproducir cuando quieras en la ruta comentada anteriormente (misma carpeta donde se encunetra el ejecutable)
+`interfaz_gui.exe`**.
 
 ---
 
