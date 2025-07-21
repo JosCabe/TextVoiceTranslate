@@ -62,7 +62,7 @@ Este proyecto permite convertir texto en voz a partir de diferentes fuentes. Ade
 ¿Quieres probar la app sin instalar nada más?  
 Puedes descargar directamente el archivo `.exe` para Windows desde el siguiente enlace:
 
-📥 [Descargar la última versión del ejecutable (.exe)](https://drive.google.com/file/d/1aDuYOfocPOTbvrV9ntCS5biNwOvqxi-V/view?usp=sharing)
+📥[Descargar ejecutable de la app de Texto a Voz](https://drive.google.com/file/d/12YH9ncFVZ3QSuckfAWTPDTzqd_26SMr9/view?usp=sharing)
 
 
 ### 🔐 Aviso de seguridad al ejecutar la aplicación
