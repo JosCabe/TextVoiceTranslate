@@ -48,7 +48,7 @@ Este proyecto permite convertir texto en voz a partir de diferentes fuentes. Ade
 2. Descarga este repositorio y ubica tu consola en la carpeta del proyecto.  
 3. Asegúrate de tener FFmpeg instalado y extraído.  
    Puedes descargarlo desde:  
-   🔗 [🔗 Descargar desde Google Drive](https://drive.google.com/file/d/12YH9ncFVZ3QSuckfAWTPDTzqd_26SMr9/view?usp=drive_link)
+ [🔗 Descargar desde Google Drive](https://drive.google.com/file/d/12YH9ncFVZ3QSuckfAWTPDTzqd_26SMr9/view?usp=drive_link)
 
 4. Instala las dependencias ejecutando:
 
