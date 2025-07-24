@@ -127,7 +127,7 @@ def mostrar_opciones_extras(caja_texto, tipo_entrada):
             width=30
         ).pack(pady=3)
 
-    # SEPARADOR VISUAL (puedes omitirlo si quieres)
+    # SEPARADOR VISUAL
     tk.Label(frame_botones, text=" ", bg="#222222").pack(pady=5)
 
     # SEGUNDO GRUPO: Reiniciar y Cerrar en la misma línea
