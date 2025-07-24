@@ -30,7 +30,7 @@ class TextoAVoz:
         else:
             ffmpeg_ruta_local = os.path.join("ffmpeg", "bin", "ffmpeg.exe")
 
-        # Ruta de respaldo (la original que usabas)
+        # Ruta de respaldo (la original)
         ruta_respaldo = "D:\\ffmpeg-7.1.1-essentials_build\\bin\\ffmpeg.exe"
 
         # Verificar cuál usar
@@ -159,7 +159,7 @@ class TextoAVoz:
 
     #Método para resumir el texto >= 100 palabras
     def resumir_texto(self, min_palabras=100, num_oraciones=5):
-        idioma_actual = detect(self.texto)#Si el idioma es chino, segmentamos con jieba
+        idioma_actual = detect(self.texto)#Si el idioma es chino, se segmenta con jieba
 
         if idioma_actual.startswith("zh"):
             print("🔍 Segmentando texto en chino con jieba...")
@@ -168,7 +168,7 @@ class TextoAVoz:
         else:
              texto_segmentado = self.texto
         
-        if len(texto_segmentado.split()) < min_palabras:    #Ya podemos comprobar la cantidad de palabras correctamente
+        if len(texto_segmentado.split()) < min_palabras:    #Ya se puede comprobar la cantidad de palabras correctamente
             print(f"\n⚠️ El texto tiene menos de {min_palabras} palabras. No se puede resumir.")
             return False
 
@@ -192,7 +192,7 @@ class TextoAVoz:
         try:
             traductor = Translator()
             traduccion = traductor.translate(self.texto, src=idioma_detectado, dest=idioma_destino)
-            self.texto = traduccion.text  # Sobrescribimos el texto con el traducido
+            self.texto = traduccion.text  # Se sobrescribe el texto con el traducido
             print("✅ Traducción completada.")  
             return idioma_detectado          
         except Exception as e:
